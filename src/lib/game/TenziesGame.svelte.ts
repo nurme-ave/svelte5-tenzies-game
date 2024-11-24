@@ -76,7 +76,7 @@ export class TenziesGame {
     const allSameValue = this.dice.every((die) => die.value === firstValue);
     this.gameWon = allDiceHeld && allSameValue;
 
-    if (this.gameWon && browser) {
+    if (this.gameWon) {
       playWinSound();
       if (this.bestScore === Infinity || this.rolls < this.bestScore) {
         this.bestScore = this.rolls;
