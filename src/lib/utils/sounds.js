@@ -19,8 +19,12 @@ let audioContext;
 // This is required by browsers to prevent unwanted autoplaying sounds
 export function initAudioContext() {
   if (!audioContext) {
-    // Try to use standard AudioContext, fall back to webkit prefix for older browsers
-    audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    try {
+      audioContext = new (window.AudioContext || window.webkitAudioContext)();
+      return audioContext;
+    } catch (error) {
+      console.error('Web Audio API is not supported in this browser', error);
+    }
   }
   return audioContext;
 }
@@ -31,6 +35,7 @@ export const generateClickSound = async () => {
   if (get(audioStore).isMuted) return;
 
   const context = initAudioContext();
+  if (!context) return;
 
   // Oscillator generates the actual sound wave
   const oscillator = context.createOscillator();
@@ -61,6 +66,7 @@ export const playWinSound = async () => {
   if (get(audioStore).isMuted) return;
 
   const context = initAudioContext();
+  if (!context) return;
   const oscillator = context.createOscillator();
   const gainNode = context.createGain();
 
