@@ -1,10 +1,13 @@
 <script>
+  // Imports
   import { onMount } from 'svelte';
   import { scale } from 'svelte/transition';
+  import { gameInstance } from '$lib/game/TenziesGame.svelte';
+
   import Die from '$lib/components/Die.svelte';
   import Button from '$lib/components/Button.svelte';
   import MuteToggle from '$lib/components/MuteToggle.svelte';
-  import { gameInstance } from '$lib/game/TenziesGame.svelte';
+  import GameWon from '$lib/components/GameWon.svelte';
 
   /* 
    Create a reactive variable that starts as empty (null).
@@ -20,17 +23,6 @@
   onMount(() => {
     game = gameInstance;
   });
-
-  function zoomIn(node, { duration = 400, delay = 0 }) {
-    return {
-      delay,
-      duration,
-      css: (t) => `
-        opacity: ${t};
-        transform: translate(-50%, -50%) scale(${t});
-      `
-    };
-  }
 </script>
 
 <svelte:head>
@@ -85,30 +77,7 @@
     </div>
 
     {#if game.gameWon}
-      <div
-        transition:zoomIn={{ duration: 400, delay: 0 }}
-        class="absolute left-1/2 top-1/2 grid h-full w-full -translate-x-1/2 -translate-y-1/2 transform place-content-center rounded-lg bg-purple-200 px-8 py-6 text-center text-black shadow-lg sm:h-[85%] sm:w-[85%] sm:px-10 sm:py-8"
-      >
-        <i class="fa-solid fa-trophy fa-4x mb-4 text-[#ffaa33] sm:mb-6 3xl:mb-8"></i>
-        <h2
-          class="mb-2 text-3xl font-bold uppercase tracking-wide text-[#8A2BE2] sm:mb-4 sm:text-4xl 3xl:text-5xl"
-        >
-          Winner!
-        </h2>
-        <div class="text-xl sm:text-2xl 3xl:text-3xl">
-          <p class="mb-2">Congratulations!</p>
-          <p class="mb-8 sm:mb-12 3xl:mb-16">
-            It took you <span class="font-semibold">{game.rolls}</span>
-            {game.rolls === 1 ? 'roll' : 'rolls'} to win!
-          </p>
-          <Button
-            text="New Game"
-            color="#8A2BE2"
-            onClick={() => game.reset()}
-            ariaLabeltext="new game"
-          />
-        </div>
-      </div>
+      <GameWon {game} />
     {/if}
   </section>
 {/if}
