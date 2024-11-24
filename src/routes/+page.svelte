@@ -6,8 +6,17 @@
   import MuteToggle from '$lib/components/MuteToggle.svelte';
   import { gameInstance } from '$lib/game/TenziesGame.svelte';
 
+  /* 
+   Create a reactive variable that starts as empty (null).
+   This variable is like a reactive middleman here, preparing the game
+   and making sure everything is set for the game to start
+  */
   let game = $state(null);
 
+  /* 
+   Assign the actual game to the reactive middleman who is ready to
+   step down now and let the game begin.
+  */
   onMount(() => {
     game = gameInstance;
   });

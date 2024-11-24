@@ -1,3 +1,4 @@
+// Imports
 import { browser } from '$app/environment';
 import { playWinSound } from '$lib/utils/sounds';
 
@@ -6,12 +7,18 @@ interface Die {
   isHeld: boolean;
 }
 
+// State management
 export class TenziesGame {
   dice = $state<Die[]>([]);
   rolls = $state(0);
   bestScore = $state(Infinity);
   gameWon = $state(false);
 
+  /* 
+   A constructor is a special method in a class that is automatically called when
+   creating a new instance of the class (when doing new TenziesGame()). It's like an 
+   "initialization" function that sets up the initial state of your class.
+  */
   constructor() {
     if (browser) {
       this.dice = this.generateNewDiceArray();
@@ -86,4 +93,5 @@ export class TenziesGame {
   }
 }
 
+// Create the instance of the game
 export const gameInstance = browser ? new TenziesGame() : null;
