@@ -86,4 +86,4 @@ export class TenziesGame {
   }
 }
 
-export const game = browser ? new TenziesGame() : null;
+export const gameInstance = browser ? new TenziesGame() : null;
