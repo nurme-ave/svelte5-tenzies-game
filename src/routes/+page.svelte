@@ -1,39 +1,26 @@
-<script lang="ts">
+<script>
   import { onMount } from 'svelte';
   import { scale } from 'svelte/transition';
   import Die from '$lib/components/Die.svelte';
   import Button from '$lib/components/Button.svelte';
   import MuteToggle from '$lib/components/MuteToggle.svelte';
   import { game } from '$lib/game/TenziesGame.svelte';
-  import type { TenziesGame } from '$lib/game/TenziesGame.svelte';
 
-  // Explicitly type gameInstance
-  let gameInstance = $state<TenziesGame | null>(null);
+  let gameInstance = $state(null);
 
   onMount(() => {
     gameInstance = game;
   });
 
-  // Type the parameters for zoomIn
-  interface TransitionParams {
-    duration?: number;
-    delay?: number;
-  }
-
-  function zoomIn(node: HTMLElement, { duration = 400, delay = 0 }: TransitionParams) {
+  function zoomIn(node, { duration = 400, delay = 0 }) {
     return {
       delay,
       duration,
-      css: (t: number) => `
+      css: (t) => `
         opacity: ${t};
         transform: translate(-50%, -50%) scale(${t});
       `
     };
-  }
-
-  // Helper function to safely access gameInstance properties
-  function assertGame(game: TenziesGame | null): asserts game is TenziesGame {
-    if (!game) throw new Error('Game not initialized');
   }
 </script>
 
@@ -47,7 +34,6 @@
 </svelte:head>
 
 {#if gameInstance}
-  {@const game = gameInstance}
   <section
     class="relative flex flex-col gap-8 rounded-lg bg-[#F5F5F5] px-4 py-10 text-center sm:max-w-[768px] sm:px-16 sm:py-12 lg:px-20 lg:py-14 3xl:max-w-[1024px] 3xl:gap-10 3xl:px-28 3xl:py-24"
   >
@@ -68,13 +54,13 @@
     </div>
 
     <div class="text-xl font-semibold text-[#000] 3xl:text-2xl">
-      <p>Rolls: {game.rolls}</p>
-      <p>Best score: {game.bestScore === Infinity ? 0 : game.bestScore}</p>
+      <p>Rolls: {gameInstance.rolls}</p>
+      <p>Best score: {gameInstance.bestScore === Infinity ? 0 : gameInstance.bestScore}</p>
     </div>
 
     <div class="mx-auto grid grid-cols-5 grid-rows-2 place-content-center gap-3 lg:gap-4">
-      {#each game.dice as die}
-        <Die value={die.value} isHeld={die.isHeld} onclick={() => game.toggleDie(die)} />
+      {#each gameInstance.dice as die}
+        <Die value={die.value} isHeld={die.isHeld} onclick={() => gameInstance.toggleDie(die)} />
       {/each}
     </div>
 
@@ -82,14 +68,19 @@
       <Button
         text="Reset"
         color="#EF4444"
-        onClick={() => game.reset()}
+        onClick={() => gameInstance.reset()}
         ariaLabeltext="reset game"
         needsConfirmation={true}
       />
-      <Button text="Roll" color="#8A2BE2" onClick={() => game.roll()} ariaLabeltext="roll dice" />
+      <Button
+        text="Roll"
+        color="#8A2BE2"
+        onClick={() => gameInstance.roll()}
+        ariaLabeltext="roll dice"
+      />
     </div>
 
-    {#if game.gameWon}
+    {#if gameInstance.gameWon}
       <div
         transition:zoomIn={{ duration: 400, delay: 0 }}
         class="absolute left-1/2 top-1/2 grid h-full w-full -translate-x-1/2 -translate-y-1/2 transform place-content-center rounded-lg bg-purple-200 px-8 py-6 text-center text-black shadow-lg sm:h-[85%] sm:w-[85%] sm:px-10 sm:py-8"
@@ -103,13 +94,13 @@
         <div class="text-xl sm:text-2xl 3xl:text-3xl">
           <p class="mb-2">Congratulations!</p>
           <p class="mb-8 sm:mb-12 3xl:mb-16">
-            It took you <span class="font-semibold">{game.rolls}</span>
-            {game.rolls === 1 ? 'roll' : 'rolls'} to win!
+            It took you <span class="font-semibold">{gameInstance.rolls}</span>
+            {gameInstance.rolls === 1 ? 'roll' : 'rolls'} to win!
           </p>
           <Button
             text="New Game"
             color="#8A2BE2"
-            onClick={() => game.reset()}
+            onClick={() => gameInstance.reset()}
             ariaLabeltext="new game"
           />
         </div>
