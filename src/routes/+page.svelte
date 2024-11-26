@@ -7,7 +7,7 @@
   import Header from '$lib/components/Header.svelte';
   import Stats from '$lib/components/Stats.svelte';
   import DiceGrid from '$lib/components/DiceGrid.svelte';
-  import Button from '$lib/components/Button.svelte';
+  import ButtonsBlock from '$lib/components/ButtonsBlock.svelte';
   import GameWon from '$lib/components/GameWon.svelte';
 
   /* 
@@ -42,17 +42,7 @@
     <Header />
     <Stats {game} />
     <DiceGrid {game} />
-
-    <div class="flex flex-row items-center justify-center gap-5 sm:gap-6">
-      <Button
-        text="Reset"
-        color="#EF4444"
-        onClick={() => game.reset()}
-        ariaLabeltext="reset game"
-        needsConfirmation={true}
-      />
-      <Button text="Roll" color="#8A2BE2" onClick={() => game.roll()} ariaLabeltext="roll dice" />
-    </div>
+    <ButtonsBlock {game} />
 
     {#if game.gameWon}
       <GameWon {game} />
