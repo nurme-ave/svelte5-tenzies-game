@@ -4,10 +4,10 @@
   import { scale } from 'svelte/transition';
   import { gameInstance } from '$lib/game/TenziesGame.svelte';
 
-  import Header from '$lib/components/Header.svelte';
-  import Stats from '$lib/components/Stats.svelte';
+  import GameHeader from '$lib/components/GameHeader.svelte';
+  import ScoreDisplay from '$lib/components/ScoreDisplay.svelte';
   import DiceGrid from '$lib/components/DiceGrid.svelte';
-  import ButtonsBlock from '$lib/components/ButtonsBlock.svelte';
+  import GameControls from '$lib/components/GameControls.svelte';
   import GameWon from '$lib/components/GameWon.svelte';
 
   /* 
@@ -39,10 +39,10 @@
   <section
     class="relative flex flex-col gap-8 rounded-lg bg-[#F5F5F5] px-4 py-10 text-center sm:max-w-[768px] sm:px-16 sm:py-12 lg:px-20 lg:py-14 3xl:max-w-[1024px] 3xl:gap-10 3xl:px-28 3xl:py-24"
   >
-    <Header />
-    <Stats {game} />
+    <GameHeader />
+    <ScoreDisplay {game} />
     <DiceGrid {game} />
-    <ButtonsBlock {game} />
+    <GameControls {game} />
 
     {#if game.gameWon}
       <GameWon {game} />

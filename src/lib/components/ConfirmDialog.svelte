@@ -1,7 +1,13 @@
 <script>
   import { scale } from 'svelte/transition';
   import ConfirmDialogButton from './ConfirmDialogButton.svelte';
-  let { isOpen = false, onConfirm, onCancel } = $props();
+  let {
+    isOpen = false,
+    onConfirm,
+    onCancel,
+    title = 'Are you sure?',
+    message = 'This will reset your current game progress. This action cannot be undone.'
+  } = $props();
 </script>
 
 {#if isOpen}
@@ -13,9 +19,9 @@
         start: 0.95
       }}
     >
-      <h2 class="mb-2 text-xl font-semibold text-[#8A2BE2]">Are you sure?</h2>
+      <h2 class="mb-2 text-xl font-semibold text-[#8A2BE2]">{title}</h2>
       <p class="mb-6 text-gray-600">
-        This will reset your current game progress. This action cannot be undone.
+        {message}
       </p>
 
       <div class="flex items-center justify-center gap-3">
