@@ -1,5 +1,6 @@
 <script>
   import { scale } from 'svelte/transition';
+  import ConfirmDialogButton from './ConfirmDialogButton.svelte';
   let { isOpen = false, onConfirm, onCancel } = $props();
 </script>
 
@@ -18,18 +19,8 @@
       </p>
 
       <div class="flex items-center justify-center gap-3">
-        <button
-          onclick={onCancel}
-          class="rounded-lg bg-gray-200 px-4 py-2 font-semibold text-gray-800 transition-colors hover:bg-gray-300 active:scale-95"
-        >
-          Cancel
-        </button>
-        <button
-          onclick={onConfirm}
-          class="rounded-lg bg-red-500 px-4 py-2 font-semibold text-white transition-colors hover:bg-red-600 active:scale-95"
-        >
-          Reset Game
-        </button>
+        <ConfirmDialogButton variant="default" onclick={onCancel} text="Cancel" />
+        <ConfirmDialogButton variant="danger" onclick={onConfirm} text="Reset Game" />
       </div>
     </div>
   </div>
