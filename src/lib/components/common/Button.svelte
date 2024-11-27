@@ -1,6 +1,8 @@
 <script>
-  import ConfirmDialog from '$lib/components/ConfirmDialog.svelte';
+  import ConfirmDialog from '$lib/components/common/ConfirmDialog.svelte';
 
+  // Most buttons don't need confirmation, so 'needsConfirmation' defaults to false.
+  // Override with needsConfirmation={true} for destructive actions like reset.
   let { text, color, onClick, ariaLabeltext, needsConfirmation = false } = $props();
   let showConfirmDialog = $state(false);
 
@@ -8,15 +10,17 @@
     if (needsConfirmation) {
       showConfirmDialog = true;
     } else {
-      onClick();
+      onClick(); // Execute the action after user confirms
     }
   }
 
   function handleConfirm() {
-    onClick();
+    onClick(); // Execute the action after user confirms
     showConfirmDialog = false;
   }
 
+  // We don't need to use onClick() here since we do not wish to execute any actions.
+  // All we need to do is to close the dialog.
   function handleCancel() {
     showConfirmDialog = false;
   }

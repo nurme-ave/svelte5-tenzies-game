@@ -1,5 +1,5 @@
 <script>
-  import Button from '$lib/components/Button.svelte';
+  import Button from '$lib/components/common/Button.svelte';
   import zoomIn from '$lib/utils/zoomIn';
 
   let { game } = $props();

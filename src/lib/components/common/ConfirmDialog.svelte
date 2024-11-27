@@ -1,6 +1,7 @@
 <script>
   import { scale } from 'svelte/transition';
-  import ConfirmDialogButton from './ConfirmDialogButton.svelte';
+  import ConfirmDialogButton from '$lib/components/common/ConfirmDialogButton.svelte';
+
   let {
     isOpen = false,
     onConfirm,

@@ -1,5 +1,5 @@
 <script>
-  import Die from './Die.svelte';
+  import Die from '$lib/components/game/Die.svelte';
 
   let { game } = $props();
 </script>

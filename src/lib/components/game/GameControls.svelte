@@ -1,7 +1,7 @@
 <script>
-  import Button from "./Button.svelte";
+  import Button from '$lib/components/common/Button.svelte';
 
-  let {game} = $props();
+  let { game } = $props();
 </script>
 
 <div class="flex flex-row items-center justify-center gap-5 sm:gap-6">

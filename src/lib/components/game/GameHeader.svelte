@@ -1,5 +1,5 @@
 <script>
-  import MuteToggle from './MuteToggle.svelte';
+  import MuteToggle from '$lib/components/ui/MuteToggle.svelte';
 
   let {
     title = 'Tenzies',

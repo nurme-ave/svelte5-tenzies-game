@@ -4,11 +4,11 @@
   import { scale } from 'svelte/transition';
   import { gameInstance } from '$lib/game/TenziesGame.svelte';
 
-  import GameHeader from '$lib/components/GameHeader.svelte';
-  import ScoreDisplay from '$lib/components/ScoreDisplay.svelte';
-  import DiceGrid from '$lib/components/DiceGrid.svelte';
-  import GameControls from '$lib/components/GameControls.svelte';
-  import GameWon from '$lib/components/GameWon.svelte';
+  import GameHeader from '$lib/components/game/GameHeader.svelte';
+  import ScoreDisplay from '$lib/components/game/ScoreDisplay.svelte';
+  import DiceGrid from '$lib/components/game/DiceGrid.svelte';
+  import GameControls from '$lib/components/game/GameControls.svelte';
+  import GameWon from '$lib/components/game/GameWon.svelte';
 
   /* 
    Create a reactive variable that starts as empty (null).

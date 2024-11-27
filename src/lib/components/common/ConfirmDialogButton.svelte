@@ -1,6 +1,5 @@
 <script>
   let { variant = 'default', onclick = () => {}, text = '', customClass = '' } = $props();
-
   let classList = $derived(
     [
       // Base styles
