@@ -33,12 +33,15 @@
     name="description"
     content="Roll, match, and strategize your way to victory in Tenzies! A thrilling dice game where quick decisions and luck combine. Can you get all dice to match?"
   />
-  <meta name="keywords" content="tenzies, dice game, browser game, roll dice, strategy game" />
+  <meta
+    name="keywords"
+    content="tenzies, dice game, browser game, roll dice, strategy game"
+  />
 </svelte:head>
 
 {#if game}
   <section
-    class="animate-fadeInForwards relative flex flex-col gap-6 rounded-lg bg-[#F5F5F5] px-2 py-10 text-center sm:max-w-[768px] sm:px-16 sm:py-12 lg:px-20 lg:pb-2 lg:pt-10 3xl:max-w-[1024px] 3xl:gap-10 3xl:px-28 3xl:py-24"
+    class="relative flex animate-fadeInForwards flex-col gap-6 rounded-lg bg-[#F5F5F5] px-2 py-10 text-center sm:max-w-[768px] sm:px-16 sm:py-12 lg:px-20 lg:pb-2 lg:pt-10 3xl:max-w-[1024px] 3xl:gap-10 3xl:px-28 3xl:py-24"
   >
     <GameHeader />
     <ScoreDisplay {game} />
