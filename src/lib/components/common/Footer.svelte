@@ -1,21 +1,35 @@
 <script>
   const currentYear = new Date().getFullYear();
-  </script>
+</script>
 
-<div class="animate-fadeInForwards w-full bg-[#F5F5F5]/55 pb-4 text-sm">
+<div class="w-full animate-fadeInForwards bg-[#F5F5F5]/55 pb-4 text-sm">
   <p class="p-3 text-center text-slate-400">
-    &copy; {currentYear} | Ave Nurme | Built with SvelteKit
+    &copy; {currentYear} |
+    <a
+      href="https://www.avenurme.dev/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="hover:text-slate-600"
+      >Ave Nurme <i class="fa-solid fa-arrow-up-right-from-square fa-xs"
+      ></i></a
+    > | Built with SvelteKit
   </p>
 
-  <div class="flex w-full flex-col items-center justify-center px-4 text-slate-400">
-    <p class="inline-flex items-center justify-center border-t border-slate-400 pt-3 text-center">
+  <div
+    class="flex w-full flex-col items-center justify-center px-4 text-slate-400"
+  >
+    <p
+      class="inline-flex items-center justify-center border-t border-slate-400 pt-3 text-center"
+    >
       This webpage achieves the{' '}
       <a
         href="https://www.websitecarbon.com/website/sveltekit-tenzies-vercel-app/"
         target="_blank"
         rel="noopener noreferrer"
       >
-        <span class="ml-1 whitespace-nowrap text-green-500 underline underline-offset-2">
+        <span
+          class="ml-1 whitespace-nowrap text-green-500 underline underline-offset-2"
+        >
           carbon rating of A&plus;<span class="text-slate-400">.</span>
         </span>
       </a>
