@@ -8,7 +8,7 @@
 <div
   transition:zoomIn={{ duration: 400, delay: 0 }}
   class="absolute left-1/2 top-1/2 z-50 grid h-full w-full -translate-x-1/2 -translate-y-1/2 transform place-content-center rounded-lg bg-purple-200 px-4 py-6 text-center text-black shadow-lg sm:h-[95%] sm:w-[95%] sm:px-10 sm:py-8 lg:h-[95%]
-  lg:w-[95%] 3xl:h-full 3xl:w-full"
+  lg:w-[95%]"
 >
   <i class="fa-solid fa-trophy fa-4x mb-4 text-[#ffaa33] sm:mb-6 3xl:mb-8"
   ></i>

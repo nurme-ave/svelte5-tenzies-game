@@ -41,7 +41,7 @@
 
 {#if game}
   <section
-    class="relative flex animate-fadeInForwards flex-col gap-6 rounded-lg bg-[#F5F5F5] px-2 py-4 text-center sm:px-10 sm:py-6 lg:px-20 lg:pb-2 lg:pt-10 xl:pt-5 3xl:max-w-[1024px] 3xl:gap-10 3xl:px-20 3xl:py-20"
+    class="relative flex animate-fadeInForwards flex-col gap-6 rounded-lg bg-[#F5F5F5] px-2 py-4 text-center sm:p-10 lg:px-20 lg:pb-2 lg:pt-10 3xl:max-w-[1024px] 3xl:gap-10 3xl:px-28 3xl:py-24"
   >
     <GameHeader />
     <ScoreDisplay {game} />
