@@ -9,6 +9,7 @@
   import DiceGrid from '$lib/components/game/DiceGrid.svelte';
   import GameControls from '$lib/components/game/GameControls.svelte';
   import GameWon from '$lib/components/game/GameWon.svelte';
+  import Footer from '$lib/components/common/Footer.svelte';
 
   /* 
    Create a reactive variable that starts as empty (null).
@@ -37,7 +38,7 @@
 
 {#if game}
   <section
-    class="relative flex flex-col gap-8 rounded-lg bg-[#F5F5F5] px-4 py-10 text-center sm:max-w-[768px] sm:px-16 sm:py-12 lg:px-20 lg:py-14 3xl:max-w-[1024px] 3xl:gap-10 3xl:px-28 3xl:py-24"
+    class="animate-fadeInForwards relative flex flex-col gap-6 rounded-lg bg-[#F5F5F5] px-2 py-10 text-center sm:max-w-[768px] sm:px-16 sm:py-12 lg:px-20 lg:pb-2 lg:pt-10 3xl:max-w-[1024px] 3xl:gap-10 3xl:px-28 3xl:py-24"
   >
     <GameHeader />
     <ScoreDisplay {game} />
@@ -47,5 +48,7 @@
     {#if game.gameWon}
       <GameWon {game} />
     {/if}
+
+    <Footer />
   </section>
 {/if}
