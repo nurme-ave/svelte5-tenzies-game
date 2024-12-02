@@ -21,6 +21,6 @@
     <MuteToggle />
   </div>
   {#each instructions as instruction}
-    <p class="text-base sm:text-lg 3xl:text-2xl">{instruction}</p>
+    <p class="text-base sm:text-lg">{instruction}</p>
   {/each}
 </div>
