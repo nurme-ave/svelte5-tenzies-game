@@ -41,7 +41,7 @@
 
 {#if game}
   <section
-    class="relative flex flex-col gap-6 rounded-lg bg-[#F5F5F5] px-2 py-6 text-center sm:p-10 lg:px-20 lg:pb-2 lg:pt-10 3xl:max-w-[1024px] 3xl:gap-10 3xl:px-28 3xl:py-12"
+    class="relative flex flex-col gap-6 rounded-lg bg-slate-200 px-2 py-6 text-center sm:p-10 lg:px-20 lg:pb-2 lg:pt-10 3xl:max-w-[1024px] 3xl:gap-10 3xl:px-28 3xl:py-12"
   >
     <GameHeader />
     <ScoreDisplay {game} />

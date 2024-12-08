@@ -2,7 +2,7 @@
   const currentYear = new Date().getFullYear();
 </script>
 
-<div class="w-full animate-fadeInForwards bg-[#F5F5F5]/55 pb-4 text-sm">
+<div class="w-full animate-fadeInForwards  bg-slate-200 pb-4 text-sm">
   <p class="p-3 text-center text-slate-400">
     &copy; {currentYear} |
     <a
