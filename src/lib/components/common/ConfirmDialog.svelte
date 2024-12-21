@@ -7,12 +7,14 @@
     onConfirm,
     onCancel,
     title = 'Are you sure?',
-    message = 'This will reset your current game progress. This action cannot be undone.'
+    message = 'This will reset your current game progress. This action cannot be undone. Please note that this will not reset your high score.'
   } = $props();
 </script>
 
 {#if isOpen}
-  <div class="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+  <div
+    class="fixed inset-0 z-50 flex items-center justify-center bg-black/50"
+  >
     <div
       class="mx-4 w-full max-w-md rounded-lg bg-white p-6 shadow-xl"
       transition:scale={{
@@ -26,8 +28,16 @@
       </p>
 
       <div class="flex items-center justify-center gap-3">
-        <ConfirmDialogButton variant="default" onclick={onCancel} text="Cancel" />
-        <ConfirmDialogButton variant="danger" onclick={onConfirm} text="Reset Game" />
+        <ConfirmDialogButton
+          variant="default"
+          onclick={onCancel}
+          text="Cancel"
+        />
+        <ConfirmDialogButton
+          variant="danger"
+          onclick={onConfirm}
+          text="Reset Game"
+        />
       </div>
     </div>
   </div>
