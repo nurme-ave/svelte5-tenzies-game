@@ -27,7 +27,7 @@
         {message}
       </p>
 
-      <div class="flex items-center justify-center gap-3">
+      <div class="flex items-center justify-center gap-3 mb-1">
         <ConfirmDialogButton
           variant="default"
           onclick={onCancel}
